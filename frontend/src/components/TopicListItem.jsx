@@ -9,7 +9,6 @@ const sampleDataForTopicListItem = {
 };
 
 const TopicListItem = (props) => {
-  console.log("Travel Props: ",props.title);
 
   return (
     <div className="topic-list__item">
