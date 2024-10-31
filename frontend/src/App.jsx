@@ -2,10 +2,8 @@
 import React from 'react';
 
 //  import PhotoListItem from './components/PhotoListItem';
- import PhotoList from './components/PhotoList';
- import TopNavigationBar from './components/TopNavigationBar';
- import TopicList from 'components/TopicList';
  import './App.scss';
+import HomeRoute from 'routes/HomeRoute';
 
 // const sampleDataForPhotoListItem = {
 //   id: "1",
@@ -21,8 +19,7 @@ import React from 'react';
 const App = () => {
   return (
     <div className="App">
-    <TopNavigationBar />
-    <PhotoList />
+      <HomeRoute />
   </div>
   );
 };

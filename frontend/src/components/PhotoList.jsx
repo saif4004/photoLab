@@ -62,7 +62,7 @@ const PhotoList = () => {
     <PhotoListItem key = {data.id} {...data} />
   ));
   return (
-    <div>
+    <div className="home-route">
       {parsedData}
     </div>
   );
