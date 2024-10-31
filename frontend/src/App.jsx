@@ -23,7 +23,6 @@ const App = () => {
     <div className="App">
     <TopNavigationBar />
     <PhotoList />
-    
   </div>
   );
 };
