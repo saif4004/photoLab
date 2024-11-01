@@ -17,6 +17,7 @@ const App = () => {
 
   return (
     <div className="App">
+      
       <HomeRoute
         userPhotos={photos}
         userTopics={topics}

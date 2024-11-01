@@ -6,7 +6,10 @@ import '../styles/HomeRoute.scss';
 const HomeRoute = (props) => {
   return (
     <div className="home-route">
-      <TopNavigationBar userTopics={props.userTopics} />
+      <TopNavigationBar 
+        userTopics={props.userTopics} 
+        favourites={props.favourites} // Pass favourites to TopNavigationBar
+      />
       <PhotoList
         userPhotos={props.userPhotos}
         favourites={props.favourites}
