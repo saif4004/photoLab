@@ -2,3 +2,31 @@
   max-width: 1200px;
   margin: auto;
 }
+
+.PhotoList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.photo-list__item {
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+}
+.photo-list__image {
+  width: 300px;
+  object-fit: cover; 
+}
+.UserInfo {
+  padding: 8px;
+
+}
+.photo-list__user-info {
+  font-weight: bold;
+}
+.photo-list__user-location {
+  color: #777;
+  font-size: 0.9em;
+}
