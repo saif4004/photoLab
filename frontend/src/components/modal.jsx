@@ -22,7 +22,7 @@ const modal = (props) => {
           <button className="photo-details-modal__close-button" onClick={onClose}>
             X
           </button>
-          {props.clickedPhoto && (  // Check if clickedPhoto exists
+          {props.clickedPhoto && (  
             <div>
               <img src={props.clickedPhoto.urls.regular} alt="Selected" />
               <h3>{props.clickedPhoto.user.name}</h3>

@@ -18,8 +18,8 @@ const App = () => {
   };
   // console.log("Favourites state:", favourites);
   const handlePhotoClick = (photo) => {
-    setClickedPhoto(photo); // Save the clicked photo data
-    setIsModalOpen(true); // Open the modal
+    setClickedPhoto(photo);
+    setIsModalOpen(true); 
 };
 
   const closeModal = () => {
