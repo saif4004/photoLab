@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/PhotoDetailsModal.scss";
 
-const Modal = (props) => {
+const modal = (props) => {
   const { isOpen, onClose } = props;
 
   const handleOverlayClick = () => {
@@ -19,7 +19,6 @@ const Modal = (props) => {
           <button className="photo-details-modal__close-button" onClick={onClose}>
             X
           </button>
-          {/* Additional modal content can go here */}
          
         </div>
       </div>
@@ -27,4 +26,4 @@ const Modal = (props) => {
   );
 };
 
-export default Modal;
+export default modal;

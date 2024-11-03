@@ -17,9 +17,8 @@ const Modal = (props) => {
       <div className="photo-details-modal-overlay" onClick={handleOverlayClick}>
         <div className="photo-details-modal" onClick={handleContentClick}>
           <button className="photo-details-modal__close-button" onClick={onClose}>
-            &times;
+            XX
           </button>
-          {/* Additional modal content can go here */}
          
         </div>
       </div>

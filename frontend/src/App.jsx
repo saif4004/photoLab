@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
-import Modal from './components/Modal';
+import Modal from './components/modal';
 import photos from 'mocks/photos';
 import topics from 'mocks/topics';
 

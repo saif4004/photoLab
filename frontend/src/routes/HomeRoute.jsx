@@ -8,7 +8,7 @@ const HomeRoute = (props) => {
     <div className="home-route">
       <TopNavigationBar 
         userTopics={props.userTopics} 
-        favourites={props.favourites} // Pass favourites to TopNavigationBar
+        favourites={props.favourites} 
       />
       <PhotoList
         userPhotos={props.userPhotos}
