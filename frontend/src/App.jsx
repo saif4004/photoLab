@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import Modal from './components/modal';
-// import topics from 'mocks/topics';
 import useApplicationData from 'hooks/useApplicationData';
 
 const App = () => {
@@ -15,6 +14,7 @@ const App = () => {
     toggleFavourite,
     handlePhotoClick,
     closeModal,
+    onTopicClick,
   } = useApplicationData();
 
   return (
@@ -26,6 +26,7 @@ const App = () => {
         favourites={favourites}
         toggleFavourite={toggleFavourite}
         onPhotoClick={handlePhotoClick}
+        onTopicClick={onTopicClick}
       />
       <Modal isOpen={isModalOpen} 
       onClose={closeModal} 

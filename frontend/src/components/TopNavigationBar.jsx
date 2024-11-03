@@ -5,14 +5,15 @@ import TopicList from './TopicList';
 import FavBadge from './FavBadge'; // Import FavBadge
 
 const TopNavigationBar = (props) => {
-  const isFavPhotoExist = props.favourites.length > 0; // Check if there are any favourites
-
+  const isFavPhotoExist = props.favourites.length > 0; 
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
-      <TopicList userTopics={props.userTopics} />
+      <TopicList 
+        userTopics={props.userTopics} 
+        onTopicClick={props.onTopicClick} 
+      />
       
-      {/* Use FavBadge and pass isFavPhotoExist */}
       <FavBadge isFavPhotoExist={isFavPhotoExist} />
     </div>
   );

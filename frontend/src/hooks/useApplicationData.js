@@ -8,6 +8,7 @@ export const ACTIONS = {
   SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
   CLOSE_MODAL: 'CLOSE_MODAL',
+  SET_SELECTED_TOPIC: 'SET_SELECTED_TOPIC',
 };
 
 const initialState = {
@@ -16,6 +17,7 @@ const initialState = {
   clickedPhoto: null,
   photoData: null,
   topicData: null,
+  selectedTopicId: null,
 };
 
 function reducer(state, action) {
@@ -63,6 +65,11 @@ function reducer(state, action) {
         isModalOpen: false,
         clickedPhoto: null,
       };
+      case ACTIONS.SET_SELECTED_TOPIC:
+        return {
+          ...state,
+          selectedTopicId: action.topicId,
+        };
 
     default:
       throw new Error(
@@ -70,6 +77,7 @@ function reducer(state, action) {
       );
   }
 }
+
 
 const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -84,6 +92,13 @@ const useApplicationData = () => {
       .then((response) => response.json())
       .then((data) => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }))
   }, []);
+  useEffect(() => {
+    if (state.selectedTopicId) {
+      fetch(`http://localhost:8001/api/topics/photos/${state.selectedTopicId}`)
+        .then((response) => response.json())
+        .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
+    }
+  }, [state.selectedTopicId]); 
 
   const toggleFavourite = (photoId) => {
     if (state.favourites.includes(photoId)) {
@@ -100,6 +115,9 @@ const useApplicationData = () => {
   const closeModal = () => {
     dispatch({ type: ACTIONS.CLOSE_MODAL }); 
   };
+  const onTopicClick = (topicId) => {
+    dispatch({ type: ACTIONS.SET_SELECTED_TOPIC, topicId });
+  };
   
 
   return {
@@ -111,6 +129,7 @@ const useApplicationData = () => {
     toggleFavourite,
     handlePhotoClick,
     closeModal,
+    onTopicClick,
   };
 };
 
