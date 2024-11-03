@@ -3,7 +3,7 @@ import React from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton({ userProps, favourites, toggleFavourite }) {
+function PhotoFavButton({ userProps, favourites = [], toggleFavourite }) {
   const isFavourite = favourites.includes(userProps.id); 
   
   const handleClick = () => {

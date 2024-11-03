@@ -37,7 +37,13 @@ const App = () => {
         toggleFavourite={toggleFavourite}
         onPhotoClick={handlePhotoClick}
       />
-      <Modal isOpen={isModalOpen} onClose={closeModal} clickedPhoto={clickedPhoto} />
+      <Modal isOpen={isModalOpen} 
+      onClose={closeModal} 
+      clickedPhoto={clickedPhoto}
+      favourites={favourites}
+      toggleFavourite={toggleFavourite}
+       
+      />
     </div>
   );
 };
