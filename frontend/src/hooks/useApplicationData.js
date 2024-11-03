@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useReducer, useEffect } from 'react';
 
 export const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
@@ -35,13 +35,13 @@ function reducer(state, action) {
     case ACTIONS.SET_PHOTO_DATA:
       return {
         ...state,
-        photoData: action.photoData,  
+        photoData: action.payload,  
       };
 
     case ACTIONS.SET_TOPIC_DATA:
       return {
         ...state,
-        topicData: action.topicData,  
+        topicData: action.payload,  
       };
 
     case ACTIONS.SELECT_PHOTO:
@@ -56,7 +56,8 @@ function reducer(state, action) {
         ...state,
         isModalOpen: true,
       };
-      case ACTIONS.CLOSE_MODAL: 
+
+    case ACTIONS.CLOSE_MODAL: 
       return {
         ...state,
         isModalOpen: false,
@@ -72,6 +73,17 @@ function reducer(state, action) {
 
 const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    fetch('http://localhost:8001/api/photos')
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
+  }, []);
+  useEffect(() => {
+    fetch('http://localhost:8001/api/topics')
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }))
+  }, []);
 
   const toggleFavourite = (photoId) => {
     if (state.favourites.includes(photoId)) {

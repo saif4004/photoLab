@@ -4,11 +4,11 @@ import TopNavigationBar from '../components/TopNavigationBar';
 import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
-  console.log("HomeRoute: ", props);
+  // console.log("HomeRoute: ", props);
   return (
     <div className="home-route">
       <TopNavigationBar 
-        userTopics={props.userTopics} 
+         userTopics={props.userTopics}
         favourites={props.favourites} 
       />
       <PhotoList
