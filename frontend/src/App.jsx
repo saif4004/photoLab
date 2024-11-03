@@ -8,6 +8,7 @@ import topics from 'mocks/topics';
 const App = () => {
   const [favourites, setFavourites] = useState([]); 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [clickedPhoto, setClickedPhoto] = useState(null);
   const toggleFavourite = (photoId) => {
     if (favourites.includes(photoId)) {
       setFavourites(favourites.filter((id) => id !== photoId));
@@ -16,12 +17,14 @@ const App = () => {
     }
   };
   // console.log("Favourites state:", favourites);
-  const handlePhotoClick = () => {
-    setIsModalOpen(true);
-  };
+  const handlePhotoClick = (photo) => {
+    setClickedPhoto(photo); // Save the clicked photo data
+    setIsModalOpen(true); // Open the modal
+};
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setClickedPhoto(null);
   };
 
   return (
@@ -34,7 +37,7 @@ const App = () => {
         toggleFavourite={toggleFavourite}
         onPhotoClick={handlePhotoClick}
       />
-      <Modal isOpen={isModalOpen} onClose={closeModal} />
+      <Modal isOpen={isModalOpen} onClose={closeModal} clickedPhoto={clickedPhoto} />
     </div>
   );
 };
