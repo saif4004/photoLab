@@ -1,22 +1,20 @@
+// frontend/src/components/TopNavigationBar.jsx
 import React from 'react';
 import '../styles/TopNavigationBar.scss';
 import TopicList from './TopicList';
-import FavIcon from './FavIcon';
+import FavBadge from './FavBadge'; // Import FavBadge
 
 const TopNavigationBar = (props) => {
+  const isFavPhotoExist = props.favourites.length > 0; // Check if there are any favourites
+
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
       <TopicList userTopics={props.userTopics} />
-      {props.favourites.length > 0 && (
-        <div className="notification">
-          You have {props.favourites.length} favourite photo{props.favourites.length > 1 ? 's' : ''}!
-        </div>
-      )}
       
-      <FavIcon />
+      {/* Use FavBadge and pass isFavPhotoExist */}
+      <FavBadge isFavPhotoExist={isFavPhotoExist} />
     </div>
   );
 }
-
 export default TopNavigationBar;

@@ -9,6 +9,7 @@ const PhotoList = (props) => {
       {...data}
       favourites={props.favourites}
       toggleFavourite={props.toggleFavourite}
+      onPhotoClick={props.onPhotoClick}
     />
   ));
   return <div className="PhotoList">{parsedData}</div>;
