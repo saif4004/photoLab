@@ -13,6 +13,10 @@ The PhotoLabs project for the Web Development React course programming.
 ## Tools and Frameworks
 - **React**: For user interfaces.
 - **SCSS**: For styling.
+- **Webpack**
+- **Babel**
+- **Express**
+
 
 ## Setup
 
