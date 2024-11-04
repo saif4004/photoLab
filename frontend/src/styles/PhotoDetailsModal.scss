@@ -1,7 +1,7 @@
 .photo-details-modal {
   background-color: white;
   box-shadow: 0 0 0 50vmax rgba(0,0,0,.5);
-  position: absolute;
+  position: fixed;
   top: 55%;
   left: 50%;
   transform: translate(-50%, -40%);
@@ -12,7 +12,7 @@
 }
 
 .photo-details-modal__close-button {
-  background-color: black;
+  background-color: inherit;
   border: none;
   color: white;
   text-align: center;
@@ -20,6 +20,8 @@
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
+  position: sticky;
+  top: 0;
   margin-left: 16px;
   margin-top: 16px;
   z-index: 1001;

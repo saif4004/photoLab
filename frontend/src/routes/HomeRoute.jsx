@@ -1,24 +1,21 @@
 import React from 'react';
 import PhotoList from '../components/PhotoList';
 import TopNavigationBar from '../components/TopNavigationBar';
-import TopicList from '../components/TopicList';
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = (props) => {
-  // console.log("HomeRoute: ", props);
-
+const HomeRoute = ({ userTopics, favourites, onTopicClick, userPhotos, toggleFavourite, onPhotoClick }) => {
   return (
     <div className="home-route">
       <TopNavigationBar 
-        userTopics={props.userTopics}
-        favourites={props.favourites}
-        onTopicClick={props.onTopicClick} 
+        userTopics={userTopics}
+        favourites={favourites}
+        onTopicClick={onTopicClick} 
       />
       <PhotoList
-        userPhotos={props.userPhotos}
-        favourites={props.favourites}
-        toggleFavourite={props.toggleFavourite}
-        onPhotoClick={props.onPhotoClick}
+        userPhotos={userPhotos}
+        favourites={favourites}
+        toggleFavourite={toggleFavourite}
+        onPhotoClick={onPhotoClick}
       />
     </div>
   );

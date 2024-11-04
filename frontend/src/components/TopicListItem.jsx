@@ -4,7 +4,6 @@ import "../styles/TopicListItem.scss";
 
 
 const TopicListItem = (props) => {
-  // console.log("TopicListItem: ",props)
   const handleClick = () => {
     props.onTopicClick(props.id);
   };

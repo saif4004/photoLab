@@ -6,7 +6,6 @@ import TopicListItem from "./TopicListItem";
 
 
 const TopicList = (props) => {
-  console.log("TOPICLIST: ",props)
 
   const parsedData = (props.userTopics || []).map((data) => (
     <TopicListItem key = {data.id} {...data}

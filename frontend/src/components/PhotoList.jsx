@@ -3,7 +3,6 @@ import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 
 const PhotoList = (props) => {
-  // console.log("PhotoList: ",props);
 
   const parsedData = (props.userPhotos || []).map((data) => (
     <PhotoListItem

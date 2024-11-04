@@ -19,37 +19,44 @@ const initialState = {
   topicData: null,
   selectedTopicId: null,
 };
-
 function reducer(state, action) {
-  switch (action.type) {
+  const { type, payload, photoId, topicId, photo } = action;
+
+  switch (type) {
     case ACTIONS.FAV_PHOTO_ADDED:
       return {
         ...state,
-        favourites: [...state.favourites, action.photoId],  
+        favourites: [...state.favourites, photoId],
       };
 
     case ACTIONS.FAV_PHOTO_REMOVED:
       return {
         ...state,
-        favourites: state.favourites.filter(id => id !== action.photoId),  
+        favourites: state.favourites.filter(id => id !== photoId),
       };
 
     case ACTIONS.SET_PHOTO_DATA:
       return {
         ...state,
-        photoData: action.payload,  
+        photoData: payload,
       };
 
     case ACTIONS.SET_TOPIC_DATA:
       return {
         ...state,
-        topicData: action.payload,  
+        topicData: payload,
+      };
+
+    case ACTIONS.SET_SELECTED_TOPIC:
+      return {
+        ...state,
+        selectedTopicId: topicId,
       };
 
     case ACTIONS.SELECT_PHOTO:
       return {
         ...state,
-        clickedPhoto: action.photo,  
+        clickedPhoto: photo,
         isModalOpen: true,
       };
 
@@ -59,22 +66,16 @@ function reducer(state, action) {
         isModalOpen: true,
       };
 
-    case ACTIONS.CLOSE_MODAL: 
+    case ACTIONS.CLOSE_MODAL:
       return {
         ...state,
         isModalOpen: false,
         clickedPhoto: null,
       };
-      case ACTIONS.SET_SELECTED_TOPIC:
-        return {
-          ...state,
-          selectedTopicId: action.topicId,
-        };
 
     default:
-      throw new Error(
-        `Tried to reduce with unsupported action type: ${action.type}`
-      );
+      console.warn(`Unsupported action type: ${type}`);
+      return state;
   }
 }
 

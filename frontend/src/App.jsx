@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
-import Modal from './components/modal';
+import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
 
 const App = () => {
@@ -19,21 +19,20 @@ const App = () => {
 
   return (
     <div className="App">
-      
       <HomeRoute
-        userPhotos={photoData} 
+        userPhotos={photoData}
         userTopics={topicData}
         favourites={favourites}
         toggleFavourite={toggleFavourite}
         onPhotoClick={handlePhotoClick}
         onTopicClick={onTopicClick}
       />
-      <Modal isOpen={isModalOpen} 
-      onClose={closeModal} 
-      clickedPhoto={clickedPhoto}
-      favourites={favourites}
-      toggleFavourite={toggleFavourite}
-       
+      <PhotoDetailsModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        clickedPhoto={clickedPhoto}
+        favourites={favourites}
+        toggleFavourite={toggleFavourite}
       />
     </div>
   );
